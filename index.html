@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ファイルダウンロード | 雪印メグミルク</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 20px;
+            color: #2c3e50;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .info {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #0078d4;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .download-btn:hover {
+            background-color: #005ea2;
+        }
+        .warning {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ファイルダウンロードページ</h1>
+    <div class="info">
+        お見積書ファイルのダウンロードはこちらから行えます。<br>
+        ※ダウンロード可能回数：10回まで<br>
+        ※有効期限：2025年8月8日まで
+    </div>
+    <a href="#" class="download-btn" onclick="alert('このリンクは攻撃型メール訓練のページです。\n実際のファイルはダウンロードされません。'); return false;">
+        お見積書をダウンロード
+    </a>
+</div>
+
+<!-- アクセス記録スクリプト（Google Apps Script） -->
+<script>
+fetch("https://api.ipify.org?format=json")
+  .then(response => response.json())
+  .then(data => {
+    const ip = data.ip;
+    const ua = navigator.userAgent;
+    const ref = document.referrer;
+
+    const logEndpoint = "https://script.google.com/macros/s/AKfycbxfGZxD4-8sqq7pc7O7_0akAB45d2qB7yVtDinLV2KLN2IJiaZLBq79L6M7lGJjGiFl/exec";
+
+    const logUrl = `${logEndpoint}?ip=${encodeURIComponent(ip)}&ua=${encodeURIComponent(ua)}&referer=${encodeURIComponent(ref)}`;
+    
+    const img = document.createElement("img");
+    img.src = logUrl;
+    img.style.display = "none";
+    document.body.appendChild(img);
+  });
+</script>
+
+</body>
+</html>
