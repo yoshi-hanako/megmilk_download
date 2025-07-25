@@ -65,22 +65,15 @@
 
 <!-- アクセス記録スクリプト（Google Apps Script） -->
 <script>
-fetch("https://api.ipify.org?format=json")
-  .then(response => response.json())
-  .then(data => {
-    const ip = data.ip;
-    const ua = navigator.userAgent;
-    const ref = document.referrer;
+  const userid = "1";
 
-    const logEndpoint = "https://script.google.com/macros/s/AKfycbxfGZxD4-8sqq7pc7O7_0akAB45d2qB7yVtDinLV2KLN2IJiaZLBq79L6M7lGJjGiFl/exec";
+    const logEndpoint = "AKfycbyMtsCmvDZ4KbZ8QvkTTUGsbtoyRWQxVhAofugP9mOpY4MHAUdqnoQG6wIcUPcogC5S/exec";
+  const logUrl = `${logEndpoint}?id=${encodeURIComponent(userid)}`;
 
-    const logUrl = `${logEndpoint}?ip=${encodeURIComponent(ip)}&ua=${encodeURIComponent(ua)}&referer=${encodeURIComponent(ref)}`;
-    
-    const img = document.createElement("img");
-    img.src = logUrl;
-    img.style.display = "none";
-    document.body.appendChild(img);
-  });
+  const img = document.createElement("img");
+  img.src = logUrl;
+  img.style.display = "none";
+  document.body.appendChild(img);
 </script>
 
 </body>
